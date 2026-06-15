@@ -17,8 +17,6 @@ Virtualization, and Self-Hosted Services.
 
 ![Documentation](https://img.shields.io/badge/Documentation-Active-blue)
 ![Status](https://img.shields.io/badge/Status-Work%20In%20Progress-green)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/alfannite/homelab-docs)
-![Repo Size](https://img.shields.io/github/repo-size/alfannite/homelab-docs)
 
 </p>
 
