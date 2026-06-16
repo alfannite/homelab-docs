@@ -464,4 +464,4 @@ Setelah mengikuti panduan ini:
   <a href="https://t.me/fannite_ops" target="_blank">
     <img src="https://img.shields.io/badge/Telegram-%2326A5E4.svg?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" />
   </a>
-</div>>
+</div>
