@@ -30,26 +30,6 @@ The goal of this repository is to provide a centralized knowledge base that can 
 
 ---
 
-## 🗂️ Repository Structure
-
-```text
-homelab-docs/
-│
-├── assets/
-│   └── images/
-│
-├── docs/
-│   ├── monitoring/
-│   ├── proxmox/
-│   ├── traefik-helper/
-│   ├── github/
-│   └── docker/
-│
-└── README.md
-```
-
----
-
 ## 🎯 Goals
 
 - Build a reusable documentation repository
