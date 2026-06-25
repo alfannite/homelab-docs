@@ -44,7 +44,7 @@ SW-LAB(config)# username admin privilege 15 secret P@ssw0rd123
 ## 3. Kasih IP ke VLAN (Biar Bisa Di-remote)
 
 ```
-SW-LAB(config)# interface vlan 1
+SW-LAB(config)# interface vlan 999
 SW-LAB(config-if)# ip address 192.168.1.10 255.255.255.0
 SW-LAB(config-if)# no shutdown
 SW-LAB(config-if)# exit
