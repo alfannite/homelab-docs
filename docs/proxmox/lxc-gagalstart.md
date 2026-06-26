@@ -3,7 +3,7 @@
 > **Use case:** Container gagal start dengan error `lxc.hook.pre-start` / `startup failed`  
 > **Tested on:** Proxmox VE, LXC dengan storage LVM-Thin
 
-![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=flat-square&logo=proxmox&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Proxmox-orange)
 
 ---
 
