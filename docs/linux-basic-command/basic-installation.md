@@ -27,6 +27,12 @@ Adduser and setting directory + shell
 ```bash
 sudo useradd -m -s /bin/bash nama_user
 ```
+---
+## Install sudo 
+
+```bash
+apt update && apt install sudo -y
+```
 
 ---
 
