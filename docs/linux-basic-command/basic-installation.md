@@ -36,6 +36,13 @@ apt update && apt install sudo -y
 
 ---
 
+## Check user groups 
+
+```bash
+groups name_user
+```
+---
+
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
 
