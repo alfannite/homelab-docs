@@ -19,6 +19,14 @@ software-properties-common \
 unzip \
 zip \
 ```
+---
+
+## Command adduser 
+Adduser and setting directory + shell
+
+```bash
+sudo useradd -m -s /bin/bash nama_user
+```
 
 ---
 
