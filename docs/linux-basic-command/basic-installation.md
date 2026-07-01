@@ -31,7 +31,7 @@ sudo useradd -m -s /bin/bash nama_user
 ## Install sudo 
 
 ```bash
-apt update && apt install sudo -y
+sudo apt update && apt install sudo -y
 ```
 
 ---
@@ -39,9 +39,15 @@ apt update && apt install sudo -y
 ## Check user groups 
 
 ```bash
-groups name_user
+sudo groups name_user
 ```
 ---
+
+## Add group on User 
+
+```bash
+sudo usermod -aG groups_name user_names
+```
 
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
