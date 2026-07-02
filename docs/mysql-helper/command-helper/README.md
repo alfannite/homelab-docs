@@ -57,7 +57,46 @@ SELECT * FROM users;
 DESC nama_tabel;
 
 ```
+---
+### Create Table
 
+```
+CREATE TABLE vps (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    user_id INT UNSIGNED NOT NULL,
+
+    package_id INT UNSIGNED NOT NULL,
+
+    vmid INT UNSIGNED NOT NULL UNIQUE,
+
+    hostname VARCHAR(100) NOT NULL,
+
+    username VARCHAR(100) NOT NULL,
+
+    status ENUM(
+        'Creating',
+        'Running',
+        'Stopped',
+        'Error',
+        'Deleted'
+    ) DEFAULT 'Creating',
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_vps_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_vps_package
+        FOREIGN KEY (package_id)
+        REFERENCES packages(id)
+);
+```
 
 
 
