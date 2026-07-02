@@ -54,8 +54,6 @@ SELECT * FROM users;
 
 ### Describ Tables
 ```
-DESCRIBE nama_tabel;
--- atau bisa disingkat:
 DESC nama_tabel;
 
 ```
