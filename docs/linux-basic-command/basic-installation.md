@@ -1,7 +1,7 @@
 # Basic installation on Ubuntu | Debian
 
 ```bash
-apt install -y \
+sudo apt update && sudo apt install -y \
 curl \
 wget \
 git \
@@ -15,7 +15,7 @@ lsb-release \
 apt-transport-https \
 software-properties-common \
 unzip \
-zip \
+zip
 ```
 ---
 
