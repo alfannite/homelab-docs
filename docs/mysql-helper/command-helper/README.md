@@ -32,8 +32,33 @@ CREATE TABLE users (
 ```
 ---
 
+### Show Databases
 
+```
+SHOW DATABASES;
+```
+---
 
+### Show Tables
+```
+SHOW Tables;
+```
+---
+
+### Show data Dalam tables
+```
+SELECT * FROM users;
+
+```
+---
+
+### Describ Tables
+```
+DESCRIBE nama_tabel;
+-- atau bisa disingkat:
+DESC nama_tabel;
+
+```
 
 
 
