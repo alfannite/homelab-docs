@@ -5,9 +5,7 @@ apt install -y \
 curl \
 wget \
 git \
-vim \
 nano \
-htop \
 btop \
 net-tools \
 dnsutils \
