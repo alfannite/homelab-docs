@@ -96,8 +96,20 @@ CREATE TABLE vps (
         FOREIGN KEY (package_id)
         REFERENCES packages(id)
 );
-```
 
+```
+---
+### Make Userame and password on Databases
+**MySQL / MariaDB**
+```
+CREATE USER 'nama_user'@'localhost' IDENTIFIED BY 'password_kuat';
+GRANT ALL PRIVILEGES ON nama_database.* TO 'nama_user'@'localhost';
+FLUSH PRIVILEGES;
+```
+Kalau mau user bisa akses dari IP mana saja, ganti 'localhost' jadi '%'.
+Kalau cuma butuh akses terbatas (misal read-only), ganti ALL PRIVILEGES jadi SELECT saja.
+
+---
 
 
 
