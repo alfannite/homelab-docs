@@ -46,6 +46,14 @@ sudo groups name_user
 ```bash
 sudo usermod -aG groups_name user_names
 ```
+---
+
+## Install Mysql Server 
+
+```bash
+sudo apt install mysql-server -y
+```
+---
 
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
