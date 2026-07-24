@@ -2,7 +2,7 @@
   <img src="../../assets/images/logo4.jpg" width="120">
 </p>
 
-<h1 align="center"></h1>
+<h1 align="center">Stack Core Installer NextCloud Extension</h1>
 
 <p align="center">
 Cara Passthrough atau Bypass Disk agar langsung size performa langsung masuk ke dalam VM nya
