@@ -54,6 +54,12 @@ sudo usermod -aG groups_name user_names
 sudo apt install mysql-server -y
 ```
 ---
+## Check Log Sudo
+
+```bash
+sudo journalctl _COMM=sudo
+```
+---
 
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
