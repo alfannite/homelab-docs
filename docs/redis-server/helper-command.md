@@ -30,6 +30,10 @@ redis-cli INFO clients
 
 redis-cli INFO memory
 ```
+### Verify apakah Redis sudah di pakai
+```bash
+redis-cli MONITOR
+```
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
 
