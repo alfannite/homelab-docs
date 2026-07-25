@@ -1,45 +1,21 @@
 <p align="center">
-  <img src="../../assets/images/logo4.jpg" width="120">
+  <img src="../../assets/images/logo6.jpg" width="120">
 </p>
 
-<h1 align="center">Core Installer NextCloud Extension</h1>
+<h1 align="center">Clear Cache Nextcloud</h1>
 
 <p align="center">
-Cara Passthrough atau Bypass Disk agar langsung size performa langsung masuk ke dalam VM nya
+Command Clear Cache NextCloud
 </p>
 
 <p align="center">
 
 ![Service](https://img.shields.io/badge/Service-Nextcloud-0082C9?style=flat&logo=nextcloud&logoColor=white)
 
+
+
 </p>
 
----
-### Install NGINX
-```bash
-sudo apt update
-sudo apt install nginx -y
-```
----
-### Install PHP + Extension
-```bash
-sudo apt install -y \
-php-fpm php-cli php-common \
-php-mysql php-gd php-curl php-xml \
-php-zip php-mbstring php-intl \
-php-bcmath php-gmp php-imagick \
-php-bz2 php-apcu php-redis
-```
----
-### Install MariaDB or MySQL
-```bash
-sudo apt install mariadb-server mariadb-client -y
-```
----
-### Install Redis Server
-```bash
-sudo apt install redis-server -y
-```
 ---
 
 <div align="center">
