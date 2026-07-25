@@ -12,12 +12,16 @@ Command Clear Cache NextCloud
 
 ![Service](https://img.shields.io/badge/Service-Nextcloud-0082C9?style=flat&logo=nextcloud&logoColor=white)
 
-
-
 </p>
 
 ---
+### Command Line
+```bash
+sudo -u www-data php /var/www/nextcloud/occ maintenance:repair
+sudo -u www-data php /var/www/nextcloud/occ files:scan --all
+```
 
+---
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
 
