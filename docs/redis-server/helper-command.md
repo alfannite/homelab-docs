@@ -27,6 +27,8 @@ ping
 ### Check Redis Dipakai
 ```bash
 redis-cli INFO clients
+
+redis-cli INFO memory
 ```
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
