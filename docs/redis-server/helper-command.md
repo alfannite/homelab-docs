@@ -34,6 +34,11 @@ redis-cli INFO memory
 ```bash
 redis-cli MONITOR
 ```
+### Monitor Redis Socket Method
+```bash
+redis-cli -s /run/redis/redis-server.sock MONITOR
+```
+---
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
 
