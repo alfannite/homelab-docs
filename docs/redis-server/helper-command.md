@@ -58,6 +58,10 @@ redis-cli -s /run/redis/redis-server.sock INFO stats
 lihat : total_commands_processed
 Misalnya : total_commands_processed:100
 ```
+### Realtime Statistik Redis
+```bash
+
+```
 ---
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
