@@ -15,6 +15,7 @@ Lalu cari dengan CTW + W : PORT 6379 di ganti menjadi PORT 0
 #### Lalu Test
 ```bash
 redis-cli -s /run/redis/redis-server.sock ping
+
 -----------------------------------------------
 
 Hasil nya Harus : PONG
@@ -22,6 +23,8 @@ Hasil nya Harus : PONG
 #### Test Untuk Mastikan TCP nya mati
 ```bash
 redis-cli ping
+
+--------------
 
 Hasil nya Harus : GAGAL
 ```
