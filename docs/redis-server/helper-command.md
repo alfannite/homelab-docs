@@ -53,6 +53,10 @@ Perhatikan : addr=unix
 ### Statistik Redis
 ```bash
 redis-cli -s /run/redis/redis-server.sock INFO stats
+----------------------------------------------------
+
+lihat : total_commands_processed
+Misalnya : total_commands_processed:100
 ```
 ---
 <div align="center">
