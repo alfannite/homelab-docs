@@ -41,6 +41,13 @@ redis-cli -s /run/redis/redis-server.sock MONITOR
 ### Lihat Active Connections
 ```bash
 redis-cli -s /run/redis/redis-server.sock CLIENT LIST
+
+------------------------------------------------------
+Result -> Contoh hasil:
+
+id=3 addr=unix age=45 idle=1 flags=N db=0
+
+Perhatikan : addr=unix
 ```
 ---
 <div align="center">
