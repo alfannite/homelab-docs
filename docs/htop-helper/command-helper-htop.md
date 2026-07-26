@@ -2,7 +2,8 @@
 Command HTOP Helper
 
 ```bash
-
+Shortcut F4
+Example : Ketikan Redis atau service yang sedang berjalan di belakang layar
 ```
 
 ---
