@@ -49,6 +49,11 @@ id=3 addr=unix age=45 idle=1 flags=N db=0
 
 Perhatikan : addr=unix
 ```
+
+### Statistik Redis
+```bash
+redis-cli -s /run/redis/redis-server.sock INFO stats
+```
 ---
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
