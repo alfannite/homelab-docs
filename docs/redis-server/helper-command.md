@@ -38,6 +38,10 @@ redis-cli MONITOR
 ```bash
 redis-cli -s /run/redis/redis-server.sock MONITOR
 ```
+### Lihat Active Connections
+```bash
+redis-cli -s /run/redis/redis-server.sock CLIENT LIST
+```
 ---
 <div align="center">
   <p>Made by Alfannite for you hehe 😊 </p>
