@@ -60,7 +60,7 @@ Misalnya : total_commands_processed:100
 ```
 ### Realtime Statistik Redis
 ```bash
-
+redis-cli -s /run/redis/redis-server.sock --stat
 ```
 ---
 <div align="center">
