@@ -139,7 +139,7 @@ By the end of this documentation, you will have a production-ready Nextcloud ser
 
 ### ⏭️ Next Chapter
 
-**➡️ [02 — System Architecture](02-architecture.md)**
+**➡️ [02 — System Architecture](architecture.md)**
 
 </div>
 
