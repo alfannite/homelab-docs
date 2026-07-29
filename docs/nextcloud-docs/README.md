@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/images/logo2.png" width="180">
+  <img src="assets/img/logo.png" width="180">
 </p>
 
-<h1 align="center">Nextcloud Production Documentation</h1>
+<h1 align="center">Nextcloud Documentation</h1>
 
 <p align="center">
 Complete deployment guide for building a production-ready Nextcloud server using
