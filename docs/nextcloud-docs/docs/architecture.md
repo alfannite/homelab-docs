@@ -285,7 +285,7 @@ This includes:
 
 ### ⏭️ Next Chapter
 
-**➡️ [03 — Server Preparation](03-server-preparation.md)**
+**➡️ [03 — Server Preparation](server-preparation.md)**
 
 </div>
 
