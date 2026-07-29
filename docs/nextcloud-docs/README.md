@@ -1,43 +1,95 @@
-# BELOM ADA JUDUL
-struktur dari nextcloud docs ini 
+<p align="center">
+  <img src="assets/images/logo2.png" width="180">
+</p>
+
+<h1 align="center">Nextcloud Production Documentation</h1>
+
+<p align="center">
+Complete deployment guide for building a production-ready Nextcloud server using
+Ubuntu Server, Nginx, PHP-FPM, MariaDB, Redis (Unix Socket), and security best practices.
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=2000&color=58A6FF&center=true&vCenter=true&width=700&lines=Nextcloud+Production+Deployment;Ubuntu+Server+24.04+LTS;Nginx+%2B+PHP-FPM+8.3;MariaDB+Database;Redis+Unix+Socket;Performance+Optimization;Security+Hardening;Monitoring+%26+Backup;Always+Learning+%F0%9F%9A%80" />
+</p>
+
+<p align="center">
+
+![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)
+![Nextcloud](https://img.shields.io/badge/Nextcloud-34-0082C9?logo=nextcloud&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-1.26-009639?logo=nginx&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?logo=php&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-10.11-003545?logo=mariadb&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-Unix%20Socket-DC382D?logo=redis&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
+</p>
 
 ---
 
-```bash
-nextcloud-docs/
+# 📖 Overview
 
-│
-├── README.md
-│
-├── docs/
-│   │
-│   ├── 01-introduction.md
-│   ├── 02-server-preparation.md
-│   ├── 03-install-mariadb.md
-│   ├── 04-install-php.md
-│   ├── 05-install-redis.md
-│   ├── 06-install-nginx.md
-│   ├── 07-install-nextcloud.md
-│   ├── 08-optimization.md
-│   ├── 09-troubleshooting.md
-│   ├── 10-hardening.md
-│   ├── 11-monitoring.md
-│   ├── 12-backup.md
-│   └── appendix.md
-│
-├── configs/
-│   │
-│   ├── nginx/
-│   ├── php/
-│   ├── redis/
-│   ├── mariadb/
-│   └── nextcloud/
-│
-├── images/
-│
-└── LICENSE
-```
+This repository contains a complete deployment guide for building a production-ready Nextcloud server from scratch.
+
+Instead of providing only installation commands, this documentation explains the reasoning behind every configuration, optimization, troubleshooting step, and best practice used throughout the deployment process.
+
+The documentation is based on real-world implementation and troubleshooting experience.
 
 ---
 
-made with love 💖
+# 🚀 Technology Stack
+
+- Ubuntu Server 24.04 LTS
+- Nextcloud 34
+- Nginx
+- PHP 8.3 FPM
+- MariaDB
+- Redis (Unix Socket)
+- OPcache
+- Cron Background Jobs
+- Traefik Reverse Proxy *(coming soon)*
+- Prometheus & Grafana *(coming soon)*
+
+---
+
+# 🎯 Project Goals
+
+- Build a production-ready Nextcloud server
+- Document every deployment step in detail
+- Explain every configuration and optimization
+- Provide real troubleshooting cases and solutions
+- Create reusable documentation for future deployments
+
+---
+
+# 📂 Documentation Structure
+
+```text
+docs/
+
+01-introduction
+
+02-server-preparation
+
+03-install-mariadb
+
+04-install-php
+
+05-install-redis
+
+06-install-nginx
+
+07-install-nextcloud
+
+08-performance-optimization
+
+09-troubleshooting
+
+10-security-hardening
+
+11-monitoring
+
+12-backup
+
+appendix
