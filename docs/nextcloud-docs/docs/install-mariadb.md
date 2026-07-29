@@ -335,7 +335,7 @@ The next step is installing PHP 8.3 FPM together with all required extensions us
 
 ### ⏭️ Next Chapter
 
-**➡️ [05 — Installing PHP 8.3 FPM](05-install-php.md)**
+**➡️ [05 — Installing PHP 8.3 FPM](install-php.md)**
 
 </div>
 
