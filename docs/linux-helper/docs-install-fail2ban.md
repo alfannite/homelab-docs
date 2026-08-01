@@ -5,7 +5,7 @@
 <h1 align="center">INSTALL FAIL2BAN</h1>
 
 <p align="center">
-Basic installation and configuration guide for Fail2Ban on Linux Server.
+Basic installation, configuration, and troubleshooting guide for Fail2Ban on Debian/Ubuntu Linux Server.
 </p>
 
 <p align="center">
@@ -20,18 +20,18 @@ Basic installation and configuration guide for Fail2Ban on Linux Server.
 
 # 📖 What is Fail2Ban?
 
-**Fail2Ban** is an open-source intrusion prevention software that protects Linux servers from brute-force attacks.
+**Fail2Ban** is an open-source Intrusion Prevention System (IPS) that protects Linux servers from brute-force attacks.
 
-It works by monitoring log files such as:
+Fail2Ban monitors log files such as:
 
-- SSH (`/var/log/auth.log`)
+- SSH
 - Nginx
 - Apache
 - FTP
 - Mail Server
 - Other supported services
 
-When Fail2Ban detects multiple failed login attempts from the same IP address, it automatically blocks the IP using the system firewall (iptables, nftables, ufw, firewalld, etc.) for a specified period of time.
+If an IP address repeatedly fails to authenticate, Fail2Ban will automatically block the IP using the system firewall (iptables, nftables, ufw, or firewalld) for a specified period.
 
 ---
 
@@ -39,32 +39,40 @@ When Fail2Ban detects multiple failed login attempts from the same IP address, i
 
 ```text
 Attacker
-     │
-     ▼
-Repeated Failed Login
-     │
-     ▼
-Linux Log File
-(/var/log/auth.log)
-     │
-     ▼
-Fail2Ban Reads Log
-     │
-     ▼
+    │
+    ▼
+Multiple Failed Login Attempts
+    │
+    ▼
+Linux Authentication Log
+    │
+    ▼
+Fail2Ban Detects Suspicious Activity
+    │
+    ▼
 Maximum Retry Reached
-     │
-     ▼
-Firewall Blocks IP
-     │
-     ▼
+    │
+    ▼
+Firewall Automatically Blocks IP
+    │
+    ▼
 Server Protected
 ```
 
 ---
 
-# 📦 Install Fail2Ban
+# 📋 Requirements
 
-## Debian / Ubuntu
+Before installing Fail2Ban, make sure your server has:
+
+- Debian / Ubuntu Linux
+- Root or sudo privileges
+- Internet connection
+- OpenSSH Server installed
+
+---
+
+# 📦 Install Fail2Ban
 
 Update package repository.
 
@@ -80,7 +88,7 @@ sudo apt install fail2ban -y
 
 ---
 
-## Verify Installation
+# 🔍 Verify Installation
 
 Check the installed version.
 
@@ -96,92 +104,84 @@ Example output
 
 ---
 
-## Check Service Status
+# ⚙️ Configure Fail2Ban
 
-```bash
-sudo systemctl status fail2ban
-```
+Instead of editing the default configuration file (`jail.conf`), create a custom configuration file named `jail.local`.
 
-If the service is running correctly, you should see:
-
-```text
-Active: active (running)
-```
-
----
-
-## Enable Fail2Ban at Boot
-
-```bash
-sudo systemctl enable fail2ban
-```
-
-Start the service if it is not already running.
-
-```bash
-sudo systemctl start fail2ban
-```
-
----
-
-# 📂 Configuration File
-
-Main configuration:
-
-```text
-/etc/fail2ban/jail.conf
-```
-
-It is **NOT recommended** to edit this file directly.
-
-Instead, create a local configuration.
-
-```bash
-sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-```
-
-All custom settings should be placed inside:
-
-```text
-/etc/fail2ban/jail.local
-```
-
----
-
-# 🔒 Example SSH Protection
-
-Open the configuration.
+Open the configuration file.
 
 ```bash
 sudo nano /etc/fail2ban/jail.local
 ```
 
-Enable the SSH jail.
+Paste the following configuration.
 
 ```ini
+[DEFAULT]
+
+bantime = 1h
+findtime = 10m
+maxretry = 5
+backend = systemd
+
 [sshd]
+
 enabled = true
 port = ssh
-maxretry = 5
-findtime = 10m
-bantime = 1h
+logpath = %(sshd_log)s
 ```
 
-### Parameter Explanation
-
-| Parameter | Description |
-|-----------|-------------|
-| enabled | Enable protection |
-| port | Protected service |
-| maxretry | Maximum failed login attempts |
-| findtime | Time window for counting failed attempts |
-| bantime | Duration of IP ban |
+Save the file.
 
 ---
 
-# 🔄 Restart Fail2Ban
+# 📚 Configuration Explanation
 
-After making configuration changes:
+| Parameter | Description |
+|-----------|-------------|
+| bantime | Duration an IP address will remain blocked |
+| findtime | Time window used to count failed login attempts |
+| maxretry | Maximum failed login attempts before banning |
+| backend | Log backend used by Fail2Ban |
+| enabled | Enable SSH protection |
+| port | SSH service port |
+| logpath | Default SSH authentication log |
+
+---
+
+# ✅ Validate Configuration
+
+Before starting the service, verify the configuration.
+
+```bash
+sudo fail2ban-client -t
+```
+
+If everything is correct, you should see:
+
+```text
+OK
+```
+
+If an error appears, check your configuration for typos before continuing.
+
+---
+
+# 🚀 Enable & Start Fail2Ban
+
+Enable Fail2Ban to start automatically during system boot.
+
+```bash
+sudo systemctl enable fail2ban
+```
+
+Start the service.
+
+```bash
+sudo systemctl start fail2ban
+```
+
+Or restart the service after making configuration changes.
 
 ```bash
 sudo systemctl restart fail2ban
@@ -189,9 +189,25 @@ sudo systemctl restart fail2ban
 
 ---
 
-# ✅ Check Active Jails
+# 🔍 Verify Service Status
 
-Display all enabled jails.
+Check whether Fail2Ban is running.
+
+```bash
+sudo systemctl status fail2ban
+```
+
+Expected output
+
+```text
+Active: active (running)
+```
+
+---
+
+# 🔒 Check Active Jails
+
+Display all active jails.
 
 ```bash
 sudo fail2ban-client status
@@ -207,7 +223,9 @@ Status
 
 ---
 
-# 🔍 Check SSH Jail Status
+# 🔍 Check SSH Jail
+
+Display detailed information about the SSH jail.
 
 ```bash
 sudo fail2ban-client status sshd
@@ -226,6 +244,8 @@ Banned IP list:
 
 # 🚫 Unban an IP Address
 
+Remove an IP address from the ban list.
+
 ```bash
 sudo fail2ban-client set sshd unbanip <IP_ADDRESS>
 ```
@@ -238,21 +258,45 @@ sudo fail2ban-client set sshd unbanip 192.168.1.100
 
 ---
 
-# 📁 Useful Log Files
+# 📂 Useful Commands
 
-Authentication log
+Restart Fail2Ban
 
-```text
-/var/log/auth.log
+```bash
+sudo systemctl restart fail2ban
 ```
 
-Fail2Ban log
+Reload configuration
 
-```text
-/var/log/fail2ban.log
+```bash
+sudo systemctl reload fail2ban
 ```
 
-View logs in real time.
+Check service status
+
+```bash
+sudo systemctl status fail2ban
+```
+
+Validate configuration
+
+```bash
+sudo fail2ban-client -t
+```
+
+View active jails
+
+```bash
+sudo fail2ban-client status
+```
+
+View SSH jail
+
+```bash
+sudo fail2ban-client status sshd
+```
+
+View Fail2Ban log
 
 ```bash
 sudo tail -f /var/log/fail2ban.log
@@ -260,32 +304,104 @@ sudo tail -f /var/log/fail2ban.log
 
 ---
 
+# 🛠️ Troubleshooting
+
+## Service Not Running
+
+Error
+
+```text
+Failed to access socket path:
+/var/run/fail2ban/fail2ban.sock
+```
+
+Check service status.
+
+```bash
+sudo systemctl status fail2ban
+```
+
+---
+
+## Configuration Error
+
+Validate the configuration.
+
+```bash
+sudo fail2ban-client -t
+```
+
+If the output is **ERROR**, open the configuration file and check for typos.
+
+```bash
+sudo nano /etc/fail2ban/jail.local
+```
+
+---
+
+## Service Failed to Start
+
+Check system logs.
+
+```bash
+sudo journalctl -xeu fail2ban
+```
+
+or
+
+```bash
+sudo journalctl -u fail2ban --no-pager -n 50
+```
+
+---
+
+## SSH Jail Not Detected
+
+Verify that the SSH jail is enabled.
+
+```ini
+[sshd]
+enabled = true
+```
+
+Then restart Fail2Ban.
+
+```bash
+sudo systemctl restart fail2ban
+```
+
+---
+
 # 💡 Best Practices
 
-- Never modify `jail.conf` directly.
-- Always use `jail.local` for custom configuration.
-- Use SSH key authentication whenever possible.
-- Disable root login via SSH.
-- Combine Fail2Ban with a firewall such as UFW or nftables.
-- Regularly monitor banned IP addresses and logs.
+- Never edit `/etc/fail2ban/jail.conf` directly.
+- Always use `/etc/fail2ban/jail.local`.
+- Validate the configuration before restarting the service.
+- Use SSH Key Authentication whenever possible.
+- Disable SSH root login.
+- Regularly monitor `/var/log/fail2ban.log`.
+- Keep Fail2Ban updated with the latest packages.
 
 ---
 
 # 📚 Summary
 
-Fail2Ban is one of the easiest and most effective ways to secure a Linux server against brute-force attacks.
+Fail2Ban is one of the simplest and most effective tools for protecting Linux servers from brute-force attacks.
 
-With minimal configuration, it can:
+By following this guide, you have learned how to:
 
-- Detect repeated failed login attempts
-- Automatically block malicious IP addresses
-- Reduce unauthorized access attempts
-- Improve overall server security
+- Install Fail2Ban
+- Configure SSH protection
+- Validate the configuration
+- Start and manage the service
+- Monitor active jails
+- Unban IP addresses
+- Troubleshoot common issues
 
 ---
 
 <div align="center">
-  <p>Made by Alfannite for you hehe 😊 </p>
+  <p>Made by Alfannite for you hehe 😊</p>
 
   <a href="https://github.com/alfannite">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
