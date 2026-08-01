@@ -10,7 +10,7 @@ THE MARKDOWN FILE FOR TEMPLATE, IF THE CONTRIBUTE ARE EDIT OR APPEND
 
 <p align="center">
 
-![Platform](https://img.shields.io/badge/Platform-Proxmox-orange) << EXAMPLE
+![Platform](https://img.shields.io/badge/Platform-Proxmox-orange) << EXAMPLE INI DI SESUAIKAN DENGAN TOPIK YANG ADA DI DALAM NYA 
 
 
 </p>
